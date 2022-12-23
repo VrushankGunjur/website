@@ -1,0 +1,44 @@
+body {
+    background-color: #4680e3;
+}
+/*
+Purple: #915d96
+Blue: #4680e3
+Green: #4bbd6d
+*/
+h1 {
+    color: white;
+    font-size: 1.8em;
+    font-weight: 200;
+    font-family: 'Georgia', serif;
+}
+
+p {
+    color: white;
+    font-family: 'Courier', monospace;
+}
+
+
+.ascii-art {
+    font-family: monospace;
+    white-space: pre;
+    color: white;
+}
+
+a.button {
+    color: white;
+    font-family: 'Courier', monospace;
+    padding: 0.3px 0.3px;
+    border: 0.1em solid white;
+    text-decoration: none;
+    border-radius: 0.3em;
+    text-align: center;
+    transition: all 0.2s
+}
+
+a.button:hover {
+    color: #ebc1a2;
+    border-color: #ebc1a2;
+    font-family: 'Luminari', fantasy;
+    font-size: 3em
+}
