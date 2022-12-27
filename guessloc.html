@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <h1>Where is this?</h1>
+    </head>
+
+    <body style="background-color: #4680e3;">
+
+    <div id="pano" style="width:100%;height:1000px;"></div>
+    <center>
+    <br>
+    <br>
+    <h1 id="dist" style="font-size: 32px;float: left">Guess a Location!</h1>
+    <button type="button" id="giveup" style="float: center;height:100px;width:200px;font-size:25px;">Reveal Location</button>
+    <button type="button" id="next" style="float: center;height:100px;width:200px;font-size:25px">Next Location</button>
+    <br>
+    <br>
+    </center>
+    <div id="map" style="width:100%;height:1000px;"></div>
+
+        
+    <script src="guessloc.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMoLL9U9rJwkNfs10Utqu2ucJ4jHvf_pY&callback=initSite" defer></script>
+    </body>
+</html>
