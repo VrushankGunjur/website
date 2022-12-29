@@ -35,24 +35,41 @@ const location_pool = [
 ];  // Still missing: Korea, Japan, Madagascar, New Zealand, Indonesia, Papua New Guinea, Hawaii
 
 function initSite(){
-    var coords = getRandCoords();
+    //var coords = getRandCoords();
     giveupbutton = document.getElementById("giveup");
-    fetch('./cities.json').then(log);
+    fetch('./cities.json').then(getcoords);
+    /*
     nextbutton = document.getElementById("next");
     dist_disp = document.getElementById("dist");
+
     display_pano = new google.maps.StreetViewPanorama(document.getElementById("pano"), {addressControl: false});
     console.log(coords);
     const pos = new google.maps.LatLng(coords.lat, coords.lng);
     const sv = new google.maps.StreetViewService();
     sv.getPanorama({location: pos, radius: 5000000000}).then(processData);
+    */
 
+}
+
+async function getcoords(cities){
+    nextbutton = document.getElementById("next");
+    dist_disp = document.getElementById("dist");
+
+    display_pano = new google.maps.StreetViewPanorama(document.getElementById("pano"), {addressControl: false});
+    
+    var idx = Math.floor(Math.random() * cities.length);
+    var coords = new google.maps.LatLng(cities[idx].lat, cities[idx].lng);
+
+    const pos = new google.maps.LatLng(coords.lat, coords.lng);
+    const sv = new google.maps.StreetViewService();
+    sv.getPanorama({location: pos, radius: 5000000000}).then(processData); 
 }
 
 async function log(x){
     var j = await x.json();
     console.log(j);
 }
-function processData({data}){
+async function processData({data}){
     const ret_loc = data.location;
 
     display_pano.setPano(ret_loc.pano);
@@ -96,6 +113,8 @@ function processData({data}){
 
 function getRandCoords() {
     // TODO change to avoid bodies of water
+
+
     var idx = Math.floor(Math.random() * (location_pool.length-1))
     var loc = location_pool[idx];
     console.log(idx);
