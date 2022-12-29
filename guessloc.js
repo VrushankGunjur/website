@@ -1,9 +1,12 @@
+
 let display_pano;
 let map;
 let dist_disp;
 let giveupbutton;
 let nextbutton;
 let guess = null;
+
+
 
 const location_pool = [
     {tl: {lat: 49.122742, lng: -125.695567}, br: {lat: 25.036513, lng: -80.336451}},    // US West to Florida
@@ -34,6 +37,7 @@ const location_pool = [
 function initSite(){
     var coords = getRandCoords();
     giveupbutton = document.getElementById("giveup");
+    fetch('./cities.json').then(log);
     nextbutton = document.getElementById("next");
     dist_disp = document.getElementById("dist");
     display_pano = new google.maps.StreetViewPanorama(document.getElementById("pano"), {addressControl: false});
@@ -44,6 +48,10 @@ function initSite(){
 
 }
 
+async function log(x){
+    var j = await x.json();
+    console.log(j);
+}
 function processData({data}){
     const ret_loc = data.location;
 
