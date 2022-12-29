@@ -51,18 +51,40 @@ function initSite(){
 
 }
 
-async function getcoords(cities){
+async function getcoords(cdata){
     nextbutton = document.getElementById("next");
     dist_disp = document.getElementById("dist");
 
     display_pano = new google.maps.StreetViewPanorama(document.getElementById("pano"), {addressControl: false});
-    
+   
+    var cities = await cdata.json();
     var idx = Math.floor(Math.random() * cities.length);
-    var coords = new google.maps.LatLng(cities[idx].lat, cities[idx].lng);
+    var lat = cities[idx].lat;
+    var lng = cities[idx].lng;
+    lat = vary(lat, 't');
+    lng = vary(lng, 'g');
 
-    const pos = new google.maps.LatLng(coords.lat, coords.lng);
+    console.log(lat);
+    console.log(lng);
+    const pos = new google.maps.LatLng(lat, lng);
     const sv = new google.maps.StreetViewService();
     sv.getPanorama({location: pos, radius: 5000000000}).then(processData); 
+}
+
+function vary(n, opt) {
+    var sign = 1;
+    if(Math.random() < 0.5) sign = -1;
+    var res = parseFloat(n) + (sign * (Math.random()/100));
+    console.log(res);
+    if(opt == 't') {
+        if(res > 90) res = 90;
+        else if(res < -90) res = -90;
+    }
+    if(opt == 'g') {
+        if(res > 180) res = 180;
+        else if(res < -180) res = -180;
+    }
+    return res;
 }
 
 async function log(x){
