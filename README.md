@@ -1,4 +1,5 @@
 # website
+This repository contains source code for my website, currently hosted at https://stanford.edu/~vrushank/
 
 ## Guess the Location
 This minigame is currently using a json file of cities found at https://github.com/lutangar/cities.json/blob/master/cities.json
