@@ -1,5 +1,5 @@
 body {
-    background-color: #4680e3;
+    background-color: #910808;
 }
 /*
 Purple: #915d96
@@ -40,21 +40,17 @@ p {
 
 a.button {
     color: white;
-    font-family: 'Courier', monospace;
-    padding: 0.3px 0.3px;
-    border: 0.1em solid white;
-    text-decoration: none;
-    border-radius: 0.3em;
-    text-align: center;
-    transition: all 0.2s
+    border-color: white;
+    font-family: 'EB Garamond';
+    font-size: 3em
 }
 
-a.button:hover {
+/* a.button:hover {
     color: #ebc1a2;
     border-color: #ebc1a2;
     font-family: 'Luminari', fantasy;
     font-size: 3em
-}
+} */
 
 
 /* CSS */

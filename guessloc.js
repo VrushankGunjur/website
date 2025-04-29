@@ -38,6 +38,8 @@ function initSite(){
     //var coords = getRandCoords();
     giveupbutton = document.getElementById("giveup");
     fetch('./cities.json').then(getcoords);
+//    offset = Math.floor(Math.random() * 22968);
+//    fetch(`http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=${offset}`).then(log);
     /*
     nextbutton = document.getElementById("next");
     dist_disp = document.getElementById("dist");
